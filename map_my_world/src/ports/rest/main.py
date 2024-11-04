@@ -2,9 +2,9 @@
 from fastapi import FastAPI, Request, status
 
 # Finkargo
-from map_my_world.config import SETUP
+# from map_my_world.config import SETUP
 from map_my_world.src.ports.rest.router import router as api_router
-from map_my_world.config.constants import PRODUCTION_ENV, STAGING_ENV, TESTING_ENV
+# from map_my_world.config.constants import PRODUCTION_ENV, STAGING_ENV, TESTING_ENV
 
 # Healthcheck
 from fastapi_healthcheck import HealthCheckFactory, healthCheckRoute
