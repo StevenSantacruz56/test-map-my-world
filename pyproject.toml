@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "test-map-my-world"
+version = "0.1.0"
+description = ""
+authors = ["Steven Santacruz Garcia <stevengarcia1118@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.115.4"
+psycopg2 = "^2.9.10"
+pydantic = "^2.9.2"
+sqlalchemy = "^2.0.36"
+uvicorn = "^0.32.0"
+gunicorn = "^23.0.0"
+sqlmodel = "^0.0.22"
+pydantic-settings = "^2.6.1"
+asyncpg = "^0.30.0"
+setuptools = "^75.3.0"
+fastapi-healthcheck = "^0.2.13"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
