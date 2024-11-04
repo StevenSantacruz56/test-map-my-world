@@ -1,0 +1,1 @@
+cd ./devops && docker compose -f localhost.yml down && docker compose -f localhost.yml up -d
