@@ -9,8 +9,6 @@ from map_my_world.shared.adapters.db.sql.models import Categories
 from map_my_world.shared.adapters.db.sql.decorators import atomic
 from map_my_world.core.schemas.locations import LocationReadSchema, LocationCreateSchema
 
-from map_my_world.shared.adapters.db.sql.models import Locations
-
 
 class LocationsService:
     def __init__(self, session: AsyncSession) -> None:
@@ -33,8 +31,8 @@ class LocationsService:
     @atomic
     async def create(self, location_create: LocationCreateSchema) -> LocationReadSchema:
         location = await self.__create_location__(location_create)
-        review = await self.__create_location_category_review_link__(location.id, location_create.category_id)
-        result = await self.__get_location_category_review_link__(review.id)
+        await self.__create_location_category_review_link__(location.id, location_create.category_id)
+        # result = await self.__get_location_category_review_link__(review.id)
         return location
 
     async def __create_location__(self, location_create) -> Locations:

@@ -9,6 +9,6 @@ class Categories(UUIDModel, TimestampModel, table=True):
     description: str = Field(nullable=False)
     status: bool = Field(default=True)
 
-    reviews_category: List["LocationCategoryReviewLink"] = Relationship(back_populates="category")
+    reviews_category: List["LocationCategoryReviewLink"] = Relationship(back_populates="category") # noqa F821
 
     __tablename__ = "categories"
