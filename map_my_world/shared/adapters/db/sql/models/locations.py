@@ -6,20 +6,18 @@ from sqlalchemy import Column
 
 from map_my_world.shared.utils.custom_fields import FloatDecimal
 from map_my_world.shared.adapters.db.sql.models.base_class import (TimestampModel, UUIDModel)
-from map_my_world.shared.adapters.db.sql.models.categories import Categories
 
 
 class LocationCategoryReviewLink(UUIDModel, TimestampModel, table=True):
     """Tabla de enlace entre Location y Category con información de revisión"""
 
-    location_id: int = Field(foreign_key="locations.id")
-    category_id: int = Field(foreign_key="categories.id")
+    location_id: UUID = Field(foreign_key="locations.id")
+    category_id: UUID = Field(foreign_key="categories.id")
     last_reviewed_at: datetime = Field(default_factory=datetime.utcnow)
     reviewed_count: int = Field(default=0)
 
     # Relaciones
     location: "Locations" = Relationship(back_populates="reviews")
-    category: "Categories" = Relationship(back_populates="reviews")
 
     __tablename__ = "location_category_reviewed"
 

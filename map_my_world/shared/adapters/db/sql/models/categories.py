@@ -9,7 +9,4 @@ class Categories(UUIDModel, TimestampModel, table=True):
     description: str = Field(nullable=False)
     status: bool = Field(default=True)
 
-    # Relaciones
-    reviews: List[LocationCategoryReviewLink] = Relationship(back_populates="category")
-
     __tablename__ = "categories"
