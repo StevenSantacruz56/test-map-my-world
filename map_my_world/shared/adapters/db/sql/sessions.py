@@ -2,11 +2,13 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import sessionmaker
 from sqlmodel import SQLModel, create_engine
 from sqlmodel.ext.asyncio.session import AsyncSession
+from . import models # noqa F401
 
 from map_my_world.config import SETUP
 
 engine = create_engine(
-    url=SETUP.sync_database_url
+    url=SETUP.sync_database_url,
+    echo=True
 )
 
 async_engine = create_async_engine(
@@ -22,3 +24,4 @@ async_session = sessionmaker(
 def create_tables():
     SQLModel.metadata.drop_all(engine)
     SQLModel.metadata.create_all(engine)
+    return engine
