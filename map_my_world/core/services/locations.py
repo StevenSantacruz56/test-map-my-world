@@ -35,8 +35,7 @@ class LocationsService:
         location = await self.__create_location__(location_create)
         review = await self.__create_location_category_review_link__(location.id, location_create.category_id)
         result = await self.__get_location_category_review_link__(review.id)
-        print(result.category_name)
-        return result
+        return location
 
     async def __create_location__(self, location_create) -> Locations:
         location = Locations(**location_create.dict())
