@@ -1,0 +1,10 @@
+POST http://localhost:8000/v1/locations
+Content-Type: application/json
+
+{
+  "name": "Location 1",
+  "description": "Description 1",
+  "category_id": "79ebd09f-5efc-4437-bd32-4512e1848d27",
+  "latitude": 1.0,
+  "longitude": 1.0
+}

@@ -26,8 +26,8 @@ class CategoryService:
         results = await self.session.exec(statement)
         return results.all()
 
-    async def create(self, supplier_create: CategoryCreateSchema) -> CategoryReadSchema:
-        category = Categories(**supplier_create.dict())
+    async def create(self, category_create: CategoryCreateSchema) -> CategoryReadSchema:
+        category = Categories(**category_create.dict())
         self.session.add(category)
         await self.session.commit()
         return category

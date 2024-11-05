@@ -1,0 +1,8 @@
+###
+POST http://localhost:8000/v1/categories
+Content-Type: application/json
+
+{
+  "name": "New Category",
+  "description": "This is a new category"
+}
