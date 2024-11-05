@@ -18,6 +18,7 @@ class LocationCategoryReviewLink(UUIDModel, TimestampModel, table=True):
 
     # Relaciones
     location: "Locations" = Relationship(back_populates="reviews")
+    category: "Categories" = Relationship(back_populates="reviews_category")
 
     __tablename__ = "location_category_reviewed"
 
@@ -32,3 +33,5 @@ class Locations(UUIDModel, TimestampModel, table=True):
     reviews: List[LocationCategoryReviewLink] = Relationship(back_populates="location")
 
     __tablename__ = "locations"
+
+

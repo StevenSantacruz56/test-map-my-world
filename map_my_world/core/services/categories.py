@@ -1,13 +1,12 @@
-from unicodedata import category
 from uuid import UUID
 
-from sqlalchemy import result_tuple
 from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 from map_my_world.core.services.generic import GenericService
-from map_my_world.shared.adapters.db.sql.models.categories import Categories
+from map_my_world.shared.adapters.db.sql.models import Categories
 from map_my_world.core.schemas.categories import CategoryCreateSchema, CategoryReadSchema
+
 
 class CategoryService:
     def __init__(self, session: AsyncSession) -> None:
